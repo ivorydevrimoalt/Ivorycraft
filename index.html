@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2009 Minecraft Online</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-image: url("https://e0.pxfuel.com/wallpapers/379/421/desktop-wallpaper-minecraft-dirt-texture.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #minecraft-text {
+            font-size: 72px;
+            color: white;
+            text-shadow: 0 0 10px black;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        #game-frame {
+            width: 800px;
+            height: 600px;
+            border: none;
+            margin: 0 auto;
+        }
+
+        #regrets {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: darkred;
+            color: white;
+            font-size: 100px;
+            text-align: center;
+            line-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="minecraft-text">Minecraft</h1>
+    <iframe id="game-frame" src="https://classic.minecraft.net/?join=gGUKCjL1QolfJncp" frameborder="0" allowfullscreen></iframe>
+    <div id="regrets">REGRETS</div>
+
+    <script>
+        // Check for ad blocker
+        if (typeof window.addEventListener === 'function') {
+            window.addEventListener("DOMContentLoaded", function() {
+                var elem = document.createElement("test");
+                var style = document.body.appendChild(document.createElement("style"));
+                elem.innerHTML = "&nbsp;";
+                style.textContent = "#" + elem.className + " { display: none; }";
+                document.body.insertBefore(elem, style);
+                if (elem.classList) {
+                    if (elem.classList.contains("invisible")) {
+                        document.getElementById("game-frame").style.display = "none";
+                        document.getElementById("regrets").style.display = "block";
+                    }
+                } else {
+                    if (style.sheet && style.sheet.rules && style.sheet.rules.length > 0) {
+                        document.getElementById("game-frame").style.display = "none";
+                        document.getElementById("regrets").style.display = "block";
+                    }
+                }
+                document.body.removeChild(style);
+                document.body.removeChild(elem);
+            });
+        }
+    </script>
+</body>
+</html>
